@@ -197,6 +197,81 @@ img {
   color: #404bbf;
 }
 
+/* Бургер */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 2px;
+  background: #2e2f42;
+  position: relative;
+  display: block;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: #2e2f42;
+  position: absolute;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.menu-icon::before {
+  top: -6px;
+}
+
+.menu-icon::after {
+  top: 6px;
+}
+
+/* Мобільне меню */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  transition: right 0.3s ease-in-out;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1000;
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu .nav-link,
+.mobile-menu .contact-link {
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .header-list,
+  .contact-list {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 .nav-link,
 .contact-link {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -875,4 +950,39 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
   background-color: #4D5AE5;
   border: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .header nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .team {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .modal {
+    width: 60%;
+    max-width: 480px;
+    padding: 40px;
+  }
 }
